@@ -9,7 +9,6 @@ import { Route } from "./types/routes";
 import * as expressWinston from "express-winston";
 
 const app: Application = express();
-const port = 3000;
 const debugLog: debug.IDebugger = debug("");
 
 app.use(express.json());
@@ -22,5 +21,4 @@ routes.forEach((route) => {
   app[method](path, ...middleware, handler);
 });
 
-app.get("/", (req, res) => res.send("Express + Typescript server"));
-app.listen(port, () => console.log(`app running on port ${port}`));
+export = app;
